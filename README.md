@@ -25,5 +25,11 @@ The idea is that the "Service Desk" should be able to run this and collect all n
     - Procmon
     - procexp
     - ....
+- Read System Configurations
+    - Network configuration
+    - Applocker rules
+    - Defender Rules
+    - HVCI and virtual based security
+    - ...
 - different Configuration profiles (not all should collected everytime)
 - let the sec/third level Support a configuration profile via webservice 
