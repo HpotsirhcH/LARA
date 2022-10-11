@@ -23,7 +23,7 @@ function Start-LARAInstance {
     #Region Paramblock ----------------------------------------------------------------------
 
     param (
-        [Parameter()][string]$InstanceGUID
+        [Parameter(Mandatory=$true)][string]$InstanceGUID
     )
 
     #EndRegion
@@ -37,6 +37,7 @@ function Start-LARAInstance {
 
 
     #Region Execution -----------------------------------------------------------------------
+
 
     #EndRegion
 
