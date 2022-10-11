@@ -4,9 +4,9 @@ function Start-LARAInstance {
         Start the LARA Instance
     .DESCRIPTION
         Start the instance for LARA. Now Everything will be collected
-    .PARAMETER Credential
-        System.Management.Automation.PSCredential
-        Specifies the credentials
+    .PARAMETER InstanceGUID
+        System.String
+        Specifies the InstanceGuid to Start
     .EXAMPLE
         PS C:\> <example usage>
         Explanation of what the example does
