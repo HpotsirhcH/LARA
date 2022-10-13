@@ -37,9 +37,9 @@ function Add-LaraConfiguration {
 
 
     #Region Initialisations -----------------------------------------------------------------
-    $LaraTempFolder = $env:TEMP + "\" + $InstanceGUID
-    $LaraConfigFolder = $LaraTempFolder + "\Config"
-    $LaraZipFolder = $LaraTempFolder + "\ZIPTemp"
+    $LaraTempFolder = $LARAConfiguration.TempFolderPath + "\" + $InstanceGUID
+    $LaraConfigFolder = $LARAConfiguration.TempFolderPath + "\" + $LARAConfiguration.ConfigFolder
+    $LaraZipFolder = $LARAConfiguration.TempFolderPath+ "\" + $LARAConfiguration.ZipFolder
 
 
     #Region Execution -----------------------------------------------------------------------
