@@ -1,0 +1,5 @@
+{
+    "TempFolderPath" : "$($env:temp)",
+    "ZipFolder" : "ZIPTemp",
+    "ConfigFolder" : "Config"
+}
