@@ -34,9 +34,9 @@ function New-LARAInstance {
     Write-Output "Create New LARA instance"
     Write-Output "INSTANCE GUID: $InstanceGUID"
 
-    $LaraTempFolder = $env:TEMP + "\" + $InstanceGUID
-    $LaraConfigFolder = $LaraTempFolder + "\Config"
-    $LaraZipFolder = $LaraTempFolder + "\ZIPTemp"
+    $LaraTempFolder = $LARAConfiguration.TempFolderPath + "\" + $InstanceGUID
+    $LaraConfigFolder = $LARAConfiguration.TempFolderPath + "\" + $LARAConfiguration.ConfigFolder
+    $LaraZipFolder = $LARAConfiguration.TempFolderPath+ "\" + $LARAConfiguration.ZipFolder
     Write-Output "Create Temp folder for Config and ZIP content: $LaraTempFolder"
     if (Test-Path -Path $LaraTempFolder) {
         Write-Output "Folder with same guid found. This one will eb deleted"
