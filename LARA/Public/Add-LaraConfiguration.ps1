@@ -5,9 +5,9 @@ function Add-LaraConfiguration {
     .DESCRIPTION
         Add a Lara Configuration to an instance. Here you will be able to Configure what have to be collected
 
-    .PARAMETER Command
+    .PARAMETER Action
         System.String
-        Specifies the Command to Add to Configuration
+        Specifies the Action to Add to Configuration
 
     .PARAMETER InstanceGUID
         System.String
@@ -30,7 +30,15 @@ function Add-LaraConfiguration {
 
     param (
         [Parameter(Mandatory=$true)][string]$InstanceGUID,
-        [Parameter(Mandatory=$true)][ValidateSet("FolderCopy","FileCopy","EventLogPath")][string]$Command
+        [Parameter(Mandatory=$true)][ValidateSet("FolderCopy","FileCopy","EventLogPath")][string]$Action,
+
+        [Parameter()]
+        [ValidateScript({$Action -eq "FolderCopy"})]
+        [String]$FolderPath,
+
+        [Parameter()]
+        [ValidateScript({$Action -eq "FileCopy"})]
+        [String]$FilePath
     )
 
     #EndRegion
@@ -44,6 +52,15 @@ function Add-LaraConfiguration {
 
     #Region Execution -----------------------------------------------------------------------
 
+    if ($Action -eq "FolderCopy") {
+        $hash = @{ Action = "FolderCopy"; FolderPath = $FolderPath }
+        New-Item -Path "$LaraConfigFolder\$(New-Guid).json" -ItemType File -Value $(ConvertTo-Json $hash )
+    }
+
+    if ($Action -eq "FileCopy") {
+        $hash = @{ Action = "FileCopy"; FolderPath = $FilePath }
+        New-Item -Path "$LaraConfigFolder\$(New-Guid).json" -ItemType File -Value $(ConvertTo-Json $hash )
+    }
     #EndRegion
 
 }
